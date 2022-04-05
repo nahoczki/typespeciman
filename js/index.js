@@ -1,3 +1,13 @@
+
+const navItems = [
+    "topNav",
+    "weightNav",
+    "bodyNav",
+    "largeNav",
+    "experimentsNav",
+    "getNav",
+]
+
 window.onload = () => {
     console.log("loaded")
 
@@ -8,4 +18,17 @@ window.onload = () => {
                         `        <p class=\"regular\">&#${i}&#${97 + (i - 65)}</p>\n` +
                         "     </div>"
     }
+
+    document.addEventListener("scroll", scrollFunc);
+}
+
+const selectNav = (locator) => {
+    document.getElementById(locator).classList.add("selected");
+    for (let navItem of navItems) {
+        if (navItem !== locator) document.getElementById(navItem).classList.remove("selected");
+    }
+}
+
+const scrollFunc = () => {
+    console.log(scrollY)
 }
